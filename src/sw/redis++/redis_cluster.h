@@ -279,6 +279,7 @@ public:
     long long strlen(const StringView &key);
 
     // LIST commands.
+    long long lpos(const StringView &key, const StringView &val);
 
     OptionalStringPair blpop(const StringView &key, long long timeout);
 

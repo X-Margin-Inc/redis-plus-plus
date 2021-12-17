@@ -292,6 +292,12 @@ long long RedisCluster::strlen(const StringView &key) {
 
 // LIST commands.
 
+long long RedisCluster::lpos(const StringView &key, const StringView& val) {
+    auto reply = command(cmd::lpos, key, val);
+
+    return reply::parse<long long>(*reply);
+}
+
 OptionalStringPair RedisCluster::blpop(const StringView &key, long long timeout) {
     auto reply = command(cmd::blpop, key, timeout);
 

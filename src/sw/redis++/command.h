@@ -450,6 +450,13 @@ inline void strlen(Connection &connection, const StringView &key) {
 
 // LIST commands.
 
+inline void lpos(Connection &connection, 
+                    const StringView &key,
+                    const StringView &val) {
+    connection.send("LPOS %b %b", key.data(), key.size(),
+                    val.data(), val.size());
+}
+
 inline void blpop(Connection &connection, const StringView &key, long long timeout) {
     connection.send("BLPOP %b %lld",
                     key.data(), key.size(),

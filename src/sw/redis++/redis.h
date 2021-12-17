@@ -963,6 +963,13 @@ public:
 
     // LIST commands.
 
+    // @brief Get the position of an element in the list.
+    /// @param key Key where the list is stoeed.
+    /// @return Position of the element in the list .
+    /// @see https://redis.io/commands/lpos
+    long long lpos(const StringView &key, const StringView &val);
+
+    
     /// @brief Pop the first element of the list in a blocking way.
     /// @param key Key where the list is stored.
     /// @param timeout Timeout in seconds. 0 means block forever.
