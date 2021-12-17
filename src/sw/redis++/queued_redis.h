@@ -490,6 +490,10 @@ public:
 
     // LIST commands.
 
+    QueuedRedis& lpos(const StringView &key, const StringView &val) {
+        return command(cmd::lpos, key, val);
+    }
+
     QueuedRedis& blpop(const StringView &key, long long timeout) {
         return command(cmd::blpop, key, timeout);
     }

@@ -397,6 +397,11 @@ long long Redis::strlen(const StringView &key) {
 }
 
 // LIST commands.
+long long Redis::lpos(const StringView &key, const StringView& val) {
+    auto reply = command(cmd::lpos, key, val);
+
+    return reply::parse<long long>(*reply);
+}
 
 OptionalStringPair Redis::blpop(const StringView &key, long long timeout) {
     auto reply = command(cmd::blpop, key, timeout);

@@ -246,6 +246,10 @@ public:
 
     // LIST commands.
 
+    Future<long long> lpos(const StringView &key, const StringView &val) {
+        return _command<long long>(fmt::lpos, key, val);
+    }
+
     Future<OptionalStringPair> blpop(const StringView &key,
                                 const std::chrono::seconds &timeout = std::chrono::seconds{0}) {
         return _command<OptionalStringPair>(fmt::blpop, key, timeout);

@@ -260,6 +260,11 @@ inline FormattedCommand strlen(const StringView &key) {
     return format_cmd("STRLEN %b", key.data(), key.size());
 }
 
+inline FormattedCommand lpos(const StringView &key, const StringView &val) {
+    return format_cmd("SCARD %b %b", key.data(), key.size(), val.data(), val.size());
+}
+
+
 inline FormattedCommand blpop(const StringView &key, const std::chrono::seconds &timeout) {
     return format_cmd("BLPOP %b %lld", key.data(), key.size(), timeout.count());
 }
