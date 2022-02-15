@@ -261,7 +261,7 @@ inline FormattedCommand strlen(const StringView &key) {
 }
 
 inline FormattedCommand lpos(const StringView &key, const StringView &val) {
-    return format_cmd("SCARD %b %b", key.data(), key.size(), val.data(), val.size());
+    return format_cmd("LPOS %b %b", key.data(), key.size(), val.data(), val.size());
 }
 
 
